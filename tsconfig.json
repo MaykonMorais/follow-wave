@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "ES2019",
+        "lib": ["ES2019"],
+        "sourceMap": true,
+        "moduleResolution": "Node",
+        "outDir": "dist",
+        "module": "CommonJS",
+        "strict": true,
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictFunctionTypes": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "noImplicitReturns": true,
+        "strictNullChecks": true,
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "@src/*": ["./src/*"],
+            "@test/*": ["./test/*"]
+        },
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+    },
+    "include": ["./src/**/*.ts", "./test/*.ts"],
+    "exclude": ["./node_modules/*", "dist"]
+}
