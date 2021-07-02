@@ -1,30 +1,29 @@
-import './util/module-alias'
-import { Server } from '@overnightjs/core'
-import { ForecastController } from './controllers/forecast'
-import express, { Application } from 'express'
+import './util/module-alias';
+import { Server } from '@overnightjs/core';
+import { ForecastController } from './controllers/forecast';
+import express, { Application } from 'express';
 
 export class SetupServer extends Server {
+  constructor(private port = 3000) {
+    super();
+  }
 
-    constructor(private port = 3000) {
-        super()
-    }
+  private setupExpress(): void {
+    this.app.use(express.json());
+  }
 
-    private setupExpress(): void {
-        this.app.use(express.json())
-    }
+  public init(): void {
+    this.setupExpress();
+    this.setupControllers();
+  }
 
-    public init(): void {
-        this.setupExpress()
-        this.setupControllers()
-    }
+  private setupControllers(): void {
+    const forecastController = new ForecastController();
 
-    private setupControllers(): void {
-        const forecastController = new ForecastController()
+    this.addControllers([forecastController]);
+  }
 
-        this.addControllers([forecastController])
-    }
-
-    public getApp(): Application {
-        return this.app;
-    }
+  public getApp(): Application {
+    return this.app;
+  }
 }
