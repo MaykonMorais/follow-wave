@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
-        "target": "ES2019",
-        "lib": ["ES2019"],
+        "target": "es2019",
+        "lib": ["es2019"],
         "sourceMap": true,
-        "moduleResolution": "Node",
+        "moduleResolution": "node",
         "outDir": "dist",
-        "module": "CommonJS",
+        "module": "commonjs",
         "strict": true,
         "alwaysStrict": true,
         "noImplicitAny": true,
@@ -17,14 +17,20 @@
         "strictNullChecks": true,
         "removeComments": true,
         "allowSyntheticDefaultImports": true,
-        "baseUrl": ".",
+        "baseUrl": "./",
         "paths": {
             "@src/*": ["./src/*"],
             "@test/*": ["./test/*"]
         },
+        "rootDirs": [
+            "./src", 
+            "./test"
+        ],
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
     },
-    "include": ["./src/**/*.ts", "./test/*.ts"],
+    "include": [
+        "./src/**/*.ts",
+        "./test/**/*.ts"],
     "exclude": ["./node_modules/*", "dist"]
 }
